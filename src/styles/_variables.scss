@@ -1,8 +1,19 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400,700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
 
 /* FONTS */
-$fontPrimary: "Space Mono", monospace;
+$fontPrimary: "Space Mono";
+$fontSecond: "Lexend Deca";
+
+/* Colors */
+$yellow: hsl(40, 97, 58);
+$lightYellow: hsl(39, 100, 94);
+$darkNavy: hsl(216, 17, 35);
+$dimGrey: hsl(217, 12, 62);
+$lightGrey: hsl(212, 41, 93);
+$snow: hsl(214, 37, 96);
 
 
-$yellow: hsl(40,97,58);
+/*  */
+
+$marginPageHorizontal: 2rem;
+$marginSeccionVertical: 8rem;

@@ -1,23 +1,67 @@
-
-
 @import "variables";
 
 *,
 *::after,
-*::before{
+*::before {
   margin: 0 auto;
 }
 
 
-ul{
+ul {
   list-style: none;
   padding: 0;
 }
 
-button{
+h1, h2, h3, h4{
+  font-family: $fontPrimary;
+  font-weight: blod;
+  color: $darkNavy;
+}
+h1 {
+  font-size: 56px;
+  line-height: 56px;
+  letter-spacing: -2.5px;
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -2.14px;
+}
+h3 {
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -1.79px;
+}
+h4 {
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -1.07px;
+}
+
+p {
+  font-family: $fontSecond;
+  color: $dimGrey;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+button {
   background: transparent;
   border: none;
 }
-.btn{
+
+.btn {
   background-color: $yellow;
+  padding: 1rem 3rem;
+  font-family: $fontPrimary;
+  font-weight: 700;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.marginPage{
+  margin-left: $marginPageHorizontal;
+  margin-right: $marginPageHorizontal;
 }

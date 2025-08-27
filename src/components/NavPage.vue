@@ -27,33 +27,40 @@
 
 <script>
 export default {
-  name: 'NavPage',
-  props: {
-    msg: String
-  }
+    name: 'NavPage',
 }
 </script>
 
 
-<style lang="scss" >
-.navPageContainer{
+<style lang="scss">
+.navPageContainer {
     padding: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     font-family: $fontPrimary;
+    height: 2rem;
 }
-.navPageBurger{
+
+.navPageBurger {
     position: absolute;
     left: 1.5rem;
 }
-.navPageNavigation{
+
+.navPageNavigation {
     background-color: white;
     position: absolute;
     width: 100vw;
-    height: calc( 100vh - 100%);
+    height: calc(100vh - 100%);
     top: 100%;
     color: $yellow;
+    display: none;
+}
+
+.navigationTop {
+    font-family: $fontPrimary;
+    color: $dimGrey;
+    font-weight: 700;
 }
 </style>
