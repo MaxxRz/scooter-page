@@ -4,6 +4,7 @@
 *::after,
 *::before {
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 
@@ -50,6 +51,7 @@ p {
 button {
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .btn {

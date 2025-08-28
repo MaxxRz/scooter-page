@@ -6,7 +6,7 @@
                 locations in
                 each of our cities. Use our app to locate the nearest bike, unlock it with a tap, and
                 you’re away!</p>
-            <button class="btn">Get Scootin</button>
+            <button class="btn" @click="console.log('hola0')">Get Scootin</button>
         </div>
         <div class="headerArrow1">
             <img src="@\assets\patterns\right-arrow-half.svg" alt="">
