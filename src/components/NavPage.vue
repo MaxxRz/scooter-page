@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="navPageLogo">
-                <img src="@\assets\logo.svg" alt="loco scoot">
+                <router-link to="/"><img src="@\assets\logo.svg" alt="loco scoot"></router-link>
             </div>
         </div>
 
@@ -17,7 +17,7 @@
                 <div class="navPageNavigation">
                     <div class="navigationTop">
                         <ul>
-                            <li>About</li>
+                            <li><router-link to="/about">About</router-link></li>
                             <li>Location</li>
                             <li>Careers</li>
                         </ul>
@@ -134,14 +134,17 @@ export default {
     }
 
     .navigationTop {
-        color: $lightGrey;
         font-family: $fontPrimary;
         font-weight: 700;
         font-size: 1.5rem;
         padding-top: 4rem;
-
+        
         li {
             margin-bottom: 2rem;
+            
+            a{
+                color: $lightGrey;
+            }
         }
     }
 

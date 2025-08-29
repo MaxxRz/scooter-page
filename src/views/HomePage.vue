@@ -14,11 +14,11 @@
         </div>
     </header>
 
+
+
     <section class="instructionContainer marginPage">
         <div class="instructionCard" v-for="(insctruction, index) in insctructions" :key="index">
-            <div class="icon">
-                <img :src="require(`@/assets/icons/${insctruction.img}.svg`)" alt="">
-            </div>
+            <img class="icon" :src="require(`@/assets/icons/${insctruction.img}.svg`)" alt="">
             <div class="title">
                 <h4>{{ insctruction.title }} </h4>
             </div>
@@ -29,34 +29,24 @@
         </div>
     </section>
 
-    <section>
-        <div class="informationContainer" v-for="(informatio, index) in informations" :key="index">
-            <div class="informationImgContainer">
-                <div class="informationImg">
-                    <img :src="require(`@/assets/img/${informatio.img}.jpg`)" alt="">
-                </div>
-                <div class="informationArrow" :class="`arrow-${index + 1}`">
-                    <img :src="require(`@/assets/patterns/${informatio.arrow}.svg`)" alt="">
-                </div>
-            </div>
-            <div class="informationDataContainer">
-                <div>
-                    <h3>{{ informatio.title }}</h3>
-                </div>
-                <div>
-                    <p>{{ informatio.description }}</p>
-                </div>
-                <div>
-                    <button class="btn">Learn more</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- section de componente de circulos informativos con arrow -->
+    <!-- se pasa un array con la data a mostrar -->
+    <InfoCirclesCards :dataArray="informations" />
+
 </template>
 
 <script>
+import InfoCirclesCards from '@/components/InfoCirclesCards.vue';
+
+
+
 export default {
+
+
     name: 'HomePage',
+    components: {
+        InfoCirclesCards,
+    },
     data() {
         return {
             insctructions: [
@@ -81,20 +71,23 @@ export default {
                     arrow: "left-downward-arrow",
                     img: "telemetry",
                     title: "Easy to use riding telemetry",
-                    description: "The Scoot app is available with riding telemetry. This means it can show you your average speed, how long you've been using the scooter, your traveling distance, and many more things all in an easy to use app."
+                    description: "The Scoot app is available with riding telemetry. This means it can show you your average speed, how long you've been using the scooter, your traveling distance, and many more things all in an easy to use app.",
+                    btn: true,
                 },
                 {
                     arrow: "right-arrow",
                     img: "near-you",
                     title: "Coming to a city near you",
-                    description: "Scoot is available in 4 major cities so far. We’re expanding rapidly, so be sure to let us know if you want to see us in your hometown. We’re aiming to let our scooters loose on 23 cities over the coming year."
+                    description: "Scoot is available in 4 major cities so far. We’re expanding rapidly, so be sure to let us know if you want to see us in your hometown. We’re aiming to let our scooters loose on 23 cities over the coming year.",
+                    btn: true,
                 },
 
                 {
                     arrow: "left-downward-arrow",
                     img: "payments",
                     title: "Zero hassle payments",
-                    description: "Our payment is as easy as one two three. We accept most credit cards and debit cards. You can also link your PayPal account inside the app. Need to pay later? No worries! You can defer payment for up to a month."
+                    description: "Our payment is as easy as one two three. We accept most credit cards and debit cards. You can also link your PayPal account inside the app. Need to pay later? No worries! You can defer payment for up to a month.",
+                    btn: true,
                 },
             ]
 
@@ -105,82 +98,23 @@ export default {
 
 
 <style lang="scss" scoped>
-
-/* INFORMATION */
-.informationContainer {
-    margin-bottom: $marginSeccionVertical;
-    text-align: center;
-}
-
-.informationImgContainer{
-    position: relative;
-    overflow: hidden;
-    
-    
-    .informationImg {
-        border-radius: 50%;
-        aspect-ratio: 1 / 1;
-        overflow: hidden;
-        margin: 0 $marginPageHorizontal;
-    
-        img {
-            width: 100%;
-        }
-    }
-
-    .informationArrow{
-        position: absolute;
-    }
-
-    .arrow-1{
-        top: 50%;
-        left: $marginPageHorizontal;
-    }
-    .arrow-2{
-        top: 0;
-        left: -25%;
-    }
-    .arrow-3{
-        top: 0;
-        left: 30%;
-    }
-}
-
-
-.informationDataContainer{
-    margin: calc($marginPageHorizontal * 2) $marginPageHorizontal 0;
-
-    >div:not(:last-child){
-        margin-bottom: 1.5rem;
-    }
-}
-
-
 /* INSTRUCTIONS */
-.instructionContainer {
-    margin-top: $marginSeccionVertical;
-    margin-bottom: $marginSeccionVertical;
-
-    >div:not(:last-child) {
-        margin-bottom: 5rem;
-    }
-}
-
 .instructionCard {
     text-align: center;
+    margin-bottom: 5rem;
 
-    >div:not(:last-child) {
+    :not(:last-child) {
         margin-bottom: 1.5rem;
     }
 
     .icon {
         width: 4rem;
-
-        img {
-            width: 100%;
-        }
     }
+
 }
+
+
+
 
 
 /* HEADER */
