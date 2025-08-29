@@ -39,7 +39,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 /* INFORMATION */
 .informationDataContainer {
     text-align: center;
@@ -50,6 +49,11 @@ export default {
     >div:not(:last-child) {
         margin-bottom: 2rem;
     }
+
+    h3 {
+        margin-bottom: 0;
+    }
+
 }
 
 
@@ -59,8 +63,7 @@ export default {
 
 
     .informationImg {
-        margin: 0 $marginPageHorizontal ;
-        margin-bottom: 3em;
+        margin: 0 $marginPageHorizontal;
 
         img {
             width: 100%;
@@ -77,7 +80,7 @@ export default {
 
 /* flechas en los circulos */
 .arrow-1 {
-    top: 50%;
+    top: 55%;
     left: 10%;
 }
 
@@ -90,7 +93,4 @@ export default {
     top: 0;
     left: 40%;
 }
-
-
-
 </style>

@@ -48,7 +48,7 @@ export default {
 /* SECTION APPS ICONS */
 .storeContainer {
     background-color: $darkNavy;
-    padding: 6rem $marginPageHorizontal;
+    padding: 5rem $marginPageHorizontal;
     text-align: center;
     background-image: url('@/assets/patterns/semi-circle-mobile.svg');
     background-position: 50%;
@@ -57,6 +57,7 @@ export default {
 
     h3 {
         color: $lightGrey;
+        margin-top: 0;
     }
 
     .sotreApps {
@@ -88,6 +89,7 @@ footer {
         padding-bottom: 5rem;
         width: auto;
         display: flex;
+        justify-content: center;
 
         li {
             padding: .5rem 0;
@@ -105,7 +107,9 @@ footer {
     .footerApps {
         display: flex;
         align-items: center;
-        width: 150px;
+        justify-content: space-evenly;
+        width: 200px;
+        margin: 0 auto;
 
         img:hover {
             cursor: pointer;

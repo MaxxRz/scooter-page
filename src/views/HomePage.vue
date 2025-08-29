@@ -41,8 +41,6 @@ import InfoCirclesCards from '@/components/InfoCirclesCards.vue';
 
 
 export default {
-
-
     name: 'HomePage',
     components: {
         InfoCirclesCards,
@@ -103,9 +101,6 @@ export default {
     text-align: center;
     margin-bottom: 5rem;
 
-    :not(:last-child) {
-        margin-bottom: 1.5rem;
-    }
 
     .icon {
         width: 4rem;
@@ -125,15 +120,16 @@ export default {
     background-size: cover;
     padding: 0 $marginPageHorizontal;
     text-align: center;
-    font-weight: bold;
     height: calc(100vh - ((1.5rem * 2) + 2rem)); // al height le quitamos el padding y la altura del nav
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     position: relative;
 
     h1 {
         color: white;
+        margin: 0;
     }
 
     p {
