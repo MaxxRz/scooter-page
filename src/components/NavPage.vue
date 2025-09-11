@@ -1,9 +1,9 @@
 <template>
-    <div class="navPageContainer">
+    <div class="navPageContainer sectionDesktop">
         <div class="navPageBL">
             <div class="navPageBurger">
                 <button @click="burger = !burger">
-                    <img v-if="burger" src="@\assets\icons\hamburger.svg" alt="icon burger">
+                    <img v-if="true" src="@\assets\icons\hamburger.svg" alt="icon burger">
                     <img v-else src="@\assets\icons\close.svg" alt="icon burger">
                 </button>
             </div>
@@ -18,23 +18,25 @@
                     <div class="navigationTop">
                         <ul>
                             <li><router-link to="/about">About</router-link></li>
-                            <li>Location</li>
-                            <li>Careers</li>
+                            <li><router-link to="/location">Location</router-link></li>
+                            <li><router-link to="/careers">Careers</router-link></li>
                         </ul>
                     </div>
                     <div class="navigationBottom">
-                        <button class="btn">
+                        <button class="btn" @click="scroll">
                             Get Scootin
                         </button>
                     </div>
                 </div>
             </div>
         </transition>
-
     </div>
 </template>
 
 <script>
+import { scrollToId } from '@/scripts/scroll';
+
+
 export default {
     name: 'NavPage',
     data() {
@@ -42,7 +44,29 @@ export default {
             burger: true,
         }
     },
+    mounted() {
+        this.activarNav();
+        window.addEventListener('resize', this.activarNav);
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.activarNav);
+    },
     methods: {
+        // funcion al seleccionar get Scootin en el nav de mobil
+        scroll() {
+            if (window.innerWidth < 650) {
+                this.burger = true;
+            }
+            scrollToId();
+        },
+        // ejecutara para activar o desactivar el menu dependiendo si es mobil o mayor
+        activarNav() {
+            if (window.innerWidth < 650) {
+                this.burger = true;
+            } else {
+                this.burger = false;
+            }
+        }
     }
 }
 </script>
@@ -60,7 +84,6 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 1px solid $dimGrey;
 }
 
 .navPageBL {
@@ -85,23 +108,25 @@ export default {
 
 /* Animación del contenedor */
 .showNav-enter-active,
-.showNav-leave-active{
-  transition: all 0.5s;
-  
+.showNav-leave-active {
+    transition: all 0.5s;
+
 }
+
 .showNav-enter-from,
 .showNav-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
 
 /* Animacion para el hijo Nav*/
 .showNav-enter-active .navPageNavigation,
 .showNav-leave-active .navPageNavigation {
-  transition: all 0.5s;
+    transition: all 0.5s;
 }
+
 .showNav-enter-from .navPageNavigation,
 .showNav-leave-to .navPageNavigation {
-  left: -100%;
+    left: -100%;
 }
 
 
@@ -139,19 +164,103 @@ export default {
         font-weight: 700;
         font-size: 1.5rem;
         padding-top: 4rem;
-        
+        color: $lightGrey;
+
         li {
             margin-bottom: 2rem;
-            
-            a{
-                color: $lightGrey;
+
+            &:hover {
+                color: $dimGrey;
             }
+
         }
+
     }
 
     button {
         width: 100%;
     }
 
+}
+
+
+
+@media (min-width: $layout-tablet) {
+
+    .showNav-enter-active,
+    .showNav-leave-active,
+    .showNav-enter-active .navPageNavigation,
+    .showNav-leave-active .navPageNavigation {
+        transition: none;
+
+    }
+
+    .navPageContainer {
+        position: static;
+        height: 6rem;
+        justify-content: flex-start;
+        overflow: hidden;
+    }
+
+    .navPageBL {
+        justify-content: flex-start;
+        width: auto;
+
+        .navPageBurger {
+            display: none;
+        }
+    }
+
+    .navPageNavigationBack {
+        position: relative;
+        top: 0;
+        height: auto;
+        width: 100%;
+        margin-left: 3rem;
+    }
+
+    .navPageNavigation {
+        background-color: white;
+        position: relative;
+        height: auto;
+        width: 100%;
+        max-width: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        div {
+            padding: 0;
+            width: auto;
+        }
+
+        .navigationTop {
+            padding: 0;
+            font-size: 1.2rem;
+            color: $dimGrey;
+
+            ul {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+
+                li {
+                    margin-bottom: 0;
+                    margin-right: 1rem;
+
+
+                    &:hover {
+                        color: $darkNavy;
+                    }
+                }
+            }
+        }
+
+        button {
+            width: auto;
+        }
+
+    }
 }
 </style>

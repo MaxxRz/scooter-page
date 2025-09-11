@@ -12,14 +12,19 @@ export default {
   name: 'App',
   components: {
     NavPage,
-
     FooterPage,
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   margin-top: 5rem;
+}
+
+@media (min-width: $layout-tablet) {
+  #app {
+    margin-top: 0rem;
+  }
 }
 </style>

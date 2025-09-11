@@ -6,13 +6,15 @@
   box-sizing: border-box;
 }
 
-body{
-   margin: 0;
+body {
+  margin: 0;
   padding: 0;
 }
+
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 h1,
@@ -48,6 +50,7 @@ h4 {
   line-height: 28px;
   letter-spacing: -1.07px;
 }
+
 h5 {
   font-size: 20px;
   line-height: 28px;
@@ -63,8 +66,9 @@ p {
   font-weight: 400;
 }
 
-a{
+a {
   text-decoration: none;
+  color: inherit;
 }
 
 button {
@@ -76,6 +80,7 @@ button {
 .btn {
   background-color: $yellow;
   padding: 1rem 3rem;
+  text-wrap: nowrap;
   font-family: $fontPrimary;
   font-weight: 700;
   color: white;
@@ -83,17 +88,31 @@ button {
   border: 5px solid $yellow;
   transition: all .2s;
 
-  &:hover{
+  &:hover {
     background-color: transparent;
     color: $yellow;
   }
 }
 
 .marginPage {
-  margin-left: $marginPageHorizontal;
-  margin-right: $marginPageHorizontal;
+  margin-left: var(--marginPageHorizontal);
+  margin-right: var(--marginPageHorizontal);
 }
 
 section {
-  margin-top: $marginSeccionVertical;
+  padding-top: var(--marginSeccionVertical);
+}
+
+#app section:first-of-type {
+  padding-top: 7rem;
+}
+
+
+@media (min-width: $layout-desktop) {
+  
+  .sectionDesktop{
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
 }

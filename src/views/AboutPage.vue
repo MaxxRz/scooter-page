@@ -1,20 +1,13 @@
 <template>
-    <header>
-
-        <h1>ABOUT PAGE</h1>
-        <h1>ABOUT PAGE</h1>
-        <h1>ABOUT PAGE</h1>
-        <h1>ABOUT PAGE</h1>
-        <h1>ABOUT PAGE</h1>
-        <h1>ABOUT PAGE</h1>
-        <h1>ABOUT PAGE</h1>
-    </header>
+    <HeaderPage/>
 
     <!-- section de componente de circulos informativos con arrow -->
     <!-- se pasa un array con la data a mostrar -->
     <InfoCirclesCards :dataArray="informations" />
 
-    <section>
+    <OurValues title="Our values"/>
+
+    <section class="marginPage">
         <div class="askedQuestionsContainer">
             <h3 class="askedQuestionsTitle">FAQs</h3>
             <div>
@@ -50,16 +43,21 @@
             </div>
         </div>
     </section>
+
 </template>
 
 <script>
 import InfoCirclesCards from '@/components/InfoCirclesCards.vue';
+import OurValues from '@/components/OurValues.vue';
+import HeaderPage from '@/components/HeaderPage.vue';
 
 
 export default {
     name: "AboutPage",
     components: {
         InfoCirclesCards,
+        OurValues,
+        HeaderPage
     },
     data() {
         return {
@@ -113,8 +111,9 @@ export default {
         }
     },
     methods: {
+        /* mostrar la respuesta escondida en el apartado de preguntas frecuentes (FAQs)*/
         showAnswer(index, name, event) {
-
+            /* Cambiamos la clase del elemento para mostrarlo */
             let element = document.getElementById(name + index);
             element.classList.toggle("showDescription")
 
@@ -123,7 +122,7 @@ export default {
             if (event.target.nodeName == "BUTTON") {
                 img = event.target.firstElementChild;
             }
-
+            /* cambiamos la clase del btn para hacer el efecto girar */
             img.classList.toggle("imgActiv")
         },
     }
@@ -131,8 +130,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+header{
+    background-image: url('@/assets/img/about-hero-mobile.jpg');
+}
+
 .askedQuestionsContainer {
-    margin: 0 $marginPageHorizontal;
     text-align: center;
 
     >div:last-child {

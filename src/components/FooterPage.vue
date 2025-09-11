@@ -1,30 +1,34 @@
 <template>
-    <section>
+    <section id="sotreApps">
         <div class="storeContainer">
             <div>
-                <h3>Sign up and Scoot off today</h3>
-            </div>
-            <div class="sotreApps">
-                <img src="@\assets\icons\app-store.svg" alt="">
-                <img src="@\assets\icons\google-play.svg" alt="">
+                <div>
+                    <h3>Sign up and Scoot off today</h3>
+                </div>
+                <div class="sotreApps">
+                    <img src="@\assets\icons\app-store.svg" alt="">
+                    <img src="@\assets\icons\google-play.svg" alt="">
+                </div>
             </div>
         </div>
     </section>
     <footer>
-        <div class="footerLogo">
-            <router-link to="/"><img src="@\assets\logo.svg" alt="loco scoot"></router-link>
-        </div>
-        <div class="footerList">
-            <ul>
-                <li><router-link to="/about">About</router-link></li>
-                <li>Location</li>
-                <li>Careers</li>
-            </ul>
-        </div>
-        <div class="footerApps">
-            <div><img src="@\assets\icons\facebook.svg" alt=""></div>
-            <div><img src="@\assets\icons\twitter.svg" alt=""></div>
-            <div><img src="@\assets\icons\instagram.svg" alt=""></div>
+        <div class="footerContainer">
+            <div class="footerLogo">
+                <router-link to="/"><img src="@\assets\logo.svg" alt="loco scoot"></router-link>
+            </div>
+            <div class="footerList">
+                <ul>
+                    <li><router-link to="/about">About</router-link></li>
+                    <li><router-link to="/location">Location</router-link></li>
+                    <li><router-link to="/careers">Careers</router-link></li>
+                </ul>
+            </div>
+            <div class="footerApps">
+                <div><img src="@\assets\icons\facebook.svg" alt=""></div>
+                <div><img src="@\assets\icons\twitter.svg" alt=""></div>
+                <div><img src="@\assets\icons\instagram.svg" alt=""></div>
+            </div>
         </div>
     </footer>
 </template>
@@ -48,12 +52,17 @@ export default {
 /* SECTION APPS ICONS */
 .storeContainer {
     background-color: $darkNavy;
-    padding: 5rem $marginPageHorizontal;
+    padding: 5rem var(--marginPageHorizontal);
     text-align: center;
     background-image: url('@/assets/patterns/semi-circle-mobile.svg');
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
+
+    >div {
+        max-width: 400px;
+        margin: 0 auto;
+    }
 
     h3 {
         color: $lightGrey;
@@ -66,6 +75,10 @@ export default {
         display: flex;
         flex-wrap: wrap;
         row-gap: 2rem;
+
+        img {
+            cursor: pointer;
+        }
     }
 }
 
@@ -87,9 +100,7 @@ footer {
     .footerList {
         padding-top: 1rem;
         padding-bottom: 5rem;
-        width: auto;
-        display: flex;
-        justify-content: center;
+        font-size: 1.2rem;
 
         li {
             padding: .5rem 0;
@@ -107,14 +118,48 @@ footer {
     .footerApps {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
-        width: 200px;
+        justify-content: space-between;
+        width: 150px;
         margin: 0 auto;
 
         img:hover {
             cursor: pointer;
             filter: grayscale(1);
         }
+    }
+}
+
+
+@media (min-width: $layout-tablet) {
+    .storeContainer {
+        background-image: url('@/assets/patterns/semi-circles.svg');
+        background-position: 50% 100%;
+        background-repeat: no-repeat;
+        background-size: auto;
+
+    }
+
+    footer {
+        padding: 2rem;
+    }
+
+    .footerContainer {
+        display: flex;
+
+        .footerList {
+            padding: 0 2rem;
+            flex: 1;
+
+            ul {
+                flex-direction: row;
+                display: flex;
+
+                li {
+                    margin-right: 1.5rem;
+                }
+            }
+        }
+
     }
 }
 </style>

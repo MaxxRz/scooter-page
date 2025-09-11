@@ -1,0 +1,7 @@
+medidas pantalla
+
+
+mobil: < 599px
+tablet: 660px > 1024px
+latop: 1024px > 1440px
+desktop: 1440px > 
