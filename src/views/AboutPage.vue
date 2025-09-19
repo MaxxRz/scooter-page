@@ -10,7 +10,7 @@
     <section class="marginPage">
         <div class="askedQuestionsContainer">
             <h3 class="askedQuestionsTitle">FAQs</h3>
-            <div>
+            <div class="askedQuestionsData sectionDesktop">
                 <h4 class="askedQuestionsSubTitle">How it works</h4>
                 <div class="questionContainer" v-for="(data, index) in howWorks" :key="index">
                     <div class="questionTop">
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div>
+            <div class="askedQuestionsData sectionDesktop">
                 <h4 class="askedQuestionsSubTitle">Safe driving</h4>
                 <div class="questionContainer" v-for="(data, index) in driving" :key="index">
                     <div class="questionTop">
@@ -131,10 +131,6 @@ export default {
 
 <style lang="scss" scoped>
 
-header{
-    background-image: url('@/assets/img/about-hero-mobile.jpg');
-}
-
 .askedQuestionsContainer {
     text-align: center;
 
@@ -187,8 +183,25 @@ header{
         &.showDescription {
             grid-template-rows: 1fr;
         }
+    }
+}
 
+@media (min-width: $layout-desktop){
+    .askedQuestionsData {
+        display: grid;
+        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr 2fr;
 
+        h4{
+            text-align: left;
+            grid-row: 1 / span 3;
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        &:last-child{
+            margin-top: 2rem;
+        }
     }
 }
 </style>

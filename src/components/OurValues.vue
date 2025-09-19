@@ -1,17 +1,19 @@
 <template>
     <section>
-        <div class="marginPage ourValuesContainer">
+        <div class="marginPage ourValuesContainer sectionDesktop">
             <h3>{{ title }}</h3>
-            <div class="ourValuesCard" v-for="(value, index) in values" :key="index">
-                <div class="ourValuesImgContainer">
-                    <img :src="require(`@/assets/img/${value.img}.jpg`)" alt="">
-                    <div>
-                        <span>0{{ index + 1 }}</span>
+            <div class="ourValuesData">
+                <div class="ourValuesCard" v-for="(value, index) in values" :key="index">
+                    <div class="ourValuesImgContainer">
+                        <img :src="require(`@/assets/img/${value.img}.jpg`)" alt="">
+                        <div>
+                            <span>0{{ index + 1 }}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="ourValuesDataContainer">
-                    <h4>{{ value.title }}</h4>
-                    <p>{{ value.description }}</p>
+                    <div class="ourValuesDataContainer">
+                        <h4>{{ value.title }}</h4>
+                        <p>{{ value.description }}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -19,13 +21,13 @@
 </template>
 
 <script>
-export default{
+export default {
     name: "OurValues",
-    props:{
+    props: {
         title: String,
     },
-    data(){
-        return{
+    data() {
+        return {
             values: [
                 {
                     img: "our-tech",
@@ -49,17 +51,18 @@ export default{
 </script>
 
 <style lang="scss" scoped>
-.ourValuesContainer{
+.ourValuesContainer {
     text-align: center;
 
-    .ourValuesCard{
+    .ourValuesCard {
         margin-top: 5rem;
     }
 }
-.ourValuesImgContainer{
+
+.ourValuesImgContainer {
     position: relative;
 
-    img{
+    img {
         border-radius: 50%;
         max-width: 250px;
         width: 100%;
@@ -67,10 +70,10 @@ export default{
 
     $sizeBall: 6em; // variable para dar tamaño y posicion a la bola amarilla
 
-    div{
+    div {
         position: absolute;
         bottom: calc(-1 * ($sizeBall / 2));
-        left: calc(50% - ( $sizeBall / 2));
+        left: calc(50% - ($sizeBall / 2));
         background-color: $yellow;
         border-radius: 50%;
         width: $sizeBall;
@@ -79,18 +82,41 @@ export default{
         justify-content: center;
         align-items: center;
 
-        
-        span{
+
+        span {
             font-family: $fontPrimary;
             font-weight: bold;
             font-size: 1.5rem;
             color: $darkNavy;
-        }   
+        }
 
     }
 }
 
-.ourValuesDataContainer{
+.ourValuesDataContainer {
     margin-top: 5rem;
+}
+
+@media (min-width: $layout-tablet) {
+    .ourValuesDataContainer {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
+
+@media (min-width: $layout-desktop) {
+    .ourValuesData {
+        display: flex;
+        gap: 5rem;
+
+        .ourValuesDataContainer {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .ourValuesCard {
+            margin-top: 3rem;
+        }
+    }
 }
 </style>

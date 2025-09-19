@@ -62,13 +62,13 @@ export default {
 
 <style lang="scss" scoped>
 /* INFORMATION */
-.informationContainer{
+.informationContainer {
     overflow: hidden;
 
     &:not(:last-child) {
         margin-bottom: 8rem;
     }
-    
+
 }
 
 .informationDataContainer {
@@ -149,8 +149,8 @@ export default {
         .informationImgContainer::after {
             max-width: 450px;
             content: "";
-            width: 100%;
             height: 100%;
+            aspect-ratio: 1 / 1;
             background-color: $lightGrey;
             z-index: 99;
             position: absolute;
@@ -186,20 +186,71 @@ export default {
 }
 
 @media (min-width: $layout-desktop) {
+    .informationContainer {
 
-    .informationContainer > div{
-        display: flex;
-        align-items: center;
+        &>div {
+            display: flex;
+            align-items: center;
+            gap: 15%;
+            width: 100%;
+            flex-direction: row-reverse;
 
-        > div{
-            background-color: red;
-            flex: 1;
+            &>div {
+                margin: 0 auto;
+                flex: 1;
+                text-align: left;
+            }
+
         }
 
-        .informationDataContainer{
-            margin: 0;
-            text-align: left ;
+        &:nth-child(even)>div {
+            flex-direction: row;
+
+            .informationImgContainer::after {
+                left: -90%;
+            }
+
+            .informationImg {
+                text-align: left;
+            }
+        }
+
+        .informationImgContainer {
+
+            &::after {
+                right: -90%;
+
+            }
+
+
+            .informationImg {
+                margin: 0 auto;
+                display: block;
+                text-align: right;
+
+                img {
+                    max-width: 400px;
+                }
+            }
         }
     }
+
+    /* flechas en los circulos */
+    .arrow-1 {
+        top: auto;
+        left: -20%;
+        bottom: 10%;
+        right: auto;
+    }
+
+    .arrow-2 {
+        top: 10%;
+        left: -50%;
+    }
+
+    .arrow-3 {
+        top: 20%;
+        left: 60%;
+    } 
 }
 </style>

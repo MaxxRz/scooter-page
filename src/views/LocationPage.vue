@@ -2,7 +2,7 @@
     <HeaderPage />
     <section>
 
-        <div class="locationMap">
+        <div class="locationMap sectionDesktop">
             <picture>
                 <source srcset="@\assets\img\world-map-desktop-dots.png" media="(width >= 650px)" />
                 <img src="@\assets\img\world-map-mobile.png" alt="">
@@ -16,11 +16,14 @@
                 <li class="ubication">Yokohama</li>
             </ul>
         </div>
-        <div class="notCity marginPage">
-            <h3>Your city not Listed?</h3>
-            <p>If you’d like to see Scoot in your hometown, be sure to let us know. We track requests and plan launches
-                based on demand. Feel free to message us by clicking the link or messaging us on social.</p>
-            <button class="btn">Message Us</button>
+        <div class="sectionDesktop">
+            <div class="notCity marginPage ">
+                <h3>Your city not Listed?</h3>
+                <p>If you’d like to see Scoot in your hometown, be sure to let us know. We track requests and plan
+                    launches
+                    based on demand. Feel free to message us by clicking the link or messaging us on social.</p>
+                <button class="btn">Message Us</button>
+            </div>
         </div>
     </section>
 </template>
@@ -37,10 +40,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header {
-    background-image: url('@/assets/img/careers-location-hero-mobile.jpg');
-}
-
 .locationMap {
     margin: 0 auto;
     margin-bottom: 3rem;
@@ -48,7 +47,6 @@ header {
 
     img {
         width: 100%;
-        background-color: red;
     }
 }
 
@@ -80,8 +78,32 @@ header {
     .locationCitys {
         display: none;
     }
-    .notCity{
-        margin-top: 5rem;
+
+    .notCity {
+        margin: 0 auto;
+        max-width: 450px;
+    }
+}
+
+@media (min-width: $layout-desktop) {
+    .notCity {
+        max-width: none;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 4rem;
+
+        h3{
+            flex: .5;
+        }
+
+        p{
+            flex: 1;
+        }
+
+        .btn{
+            margin-top: 0;
+        }
     }
 }
 </style>

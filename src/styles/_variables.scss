@@ -18,6 +18,7 @@ $snow: hsl(214, 37, 96);
 $layout-tablet: 650px;
 $layout-desktop: 1024px;
 
+
 :root {
     --marginPageHorizontal: 2rem;
     --marginSeccionVertical: 8rem
@@ -26,7 +27,7 @@ $layout-desktop: 1024px;
 
 @media (min-width: $layout-tablet) {
     :root {
-        --marginPageHorizontal: 8rem;
+        --marginPageHorizontal: 5rem;
         --marginSeccionVertical: 6rem
     }
 

@@ -108,11 +108,18 @@ section {
 }
 
 
+@media (min-width: $layout-tablet) {
+
+}
+
 @media (min-width: $layout-desktop) {
-  
-  .sectionDesktop{
+
+  .sectionDesktop {
     max-width: 1240px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
+
+
 }

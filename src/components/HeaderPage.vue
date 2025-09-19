@@ -1,7 +1,11 @@
 <template>
-    <header class="headerPage">
-        <div class="headerPageContainer">
-            <h2>{{ route.name }}</h2>
+    <header id="headerPage" class="headerPage">
+        <div class="sectionDesktop">
+            <div class="headerPageContainer">
+                <div class="headerPageName ">
+                    <h2>{{ route.name }}</h2>
+                </div>
+            </div>
         </div>
         <img class="headerDetail1" src="@\assets\patterns\white-circles.svg" alt="">
     </header>
@@ -17,27 +21,54 @@ export default {
         return {
             route: useRoute(),
         }
-    }
+    },
+    mounted() {
+        this.changeBackground();
+    },
+    methods: {
+        changeBackground() {
+            const header = document.getElementById('headerPage');
+            const nameURL = this.route.name.toLowerCase();
+            let medidasScreen = {
+                tablet: 650,
+                desktop: 1024,
+            }
+            let img = require(`@/assets/img/${nameURL}-hero-mobile.jpg`);
+
+            for (const screen in medidasScreen) {
+                if (medidasScreen[screen] < window.innerWidth) {
+                    img = require(`@/assets/img/${nameURL}-hero-${screen}.jpg`);
+                }
+            }
+
+            // ingresar la imagen background segun la ruta y el tamaño
+            header.style.backgroundImage = `url(${img})`;
+
+        }
+    },
 }
 </script>
 
 <style lang="scss" scoped>
 .headerPage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 12rem;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $onix;
     position: relative;
     overflow: hidden;
 
 
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-
     h2 {
         color: white;
     }
+}
+
+.headerPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12rem;
 }
 
 .headerDetail1 {
@@ -45,16 +76,30 @@ export default {
 }
 
 @media (min-width: $layout-tablet) {
-    .headerPage {
+
+
+    .headerPageContainer {
+        padding-left: 4rem;
         justify-content: flex-start;
-        padding-left: 5rem;
     }
 
+
     .headerDetail1 {
-        display: block;
-        right: -2rem;
-        width: 300px;
         position: absolute;
+        display: block;
+        top: 30%;
+        right: -40px;
+        width: 300px;
+        z-index: 99;
     }
+}
+
+@media (min-width: $layout-desktop) {
+
+
+    .headerPageContainer {
+        padding-left: 0;
+    }
+
 }
 </style>

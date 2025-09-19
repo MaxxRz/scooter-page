@@ -1,19 +1,21 @@
 <template>
-    <section id="sotreApps">
-        <div class="storeContainer">
-            <div>
-                <div>
-                    <h3>Sign up and Scoot off today</h3>
-                </div>
-                <div class="sotreApps">
-                    <img src="@\assets\icons\app-store.svg" alt="">
-                    <img src="@\assets\icons\google-play.svg" alt="">
+    <section id="sotreApps" ca>
+        <div class="storeContainer ">
+            <div class="sectionDesktop">
+                <div class="storeContainerBody">
+                    <div>
+                        <h3>Sign up and Scoot off today</h3>
+                    </div>
+                    <div class="sotreApps">
+                        <img src="@\assets\icons\app-store.svg" alt="">
+                        <img src="@\assets\icons\google-play.svg" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <footer>
-        <div class="footerContainer">
+        <div class="footerContainer sectionDesktop">
             <div class="footerLogo">
                 <router-link to="/"><img src="@\assets\logo.svg" alt="loco scoot"></router-link>
             </div>
@@ -59,7 +61,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
 
-    >div {
+    .storeContainerBody {
         max-width: 400px;
         margin: 0 auto;
     }
@@ -74,7 +76,7 @@ export default {
         margin-top: 3rem;
         display: flex;
         flex-wrap: wrap;
-        row-gap: 2rem;
+        gap: 2rem;
 
         img {
             cursor: pointer;
@@ -160,6 +162,38 @@ footer {
             }
         }
 
+    }
+}
+
+@media (min-width: $layout-desktop) {
+    .storeContainer {
+        text-align: left;
+        padding: 5rem 0;
+        background-position: 125% 100%;
+
+        .storeContainerBody {
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            > div:first-child{
+                max-width: 60%;
+            }
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        .sotreApps {
+            margin-top: 0;
+        }
+    }
+
+    footer {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 </style>

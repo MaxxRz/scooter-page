@@ -10,14 +10,16 @@
     <OurValues title="Why join us?" />
 
 
-    <section class="marginPage">
-        <div class="availableJobsContainer" v-for="(job, index) in jobs" :key="index">
-            <div class="aviableJobsData">
-                <h5>{{ job.title }}</h5>
-                <p>{{ job.address }}</p>
-            </div>
-            <div class="aviableJobsBtn">
-                <button class="btn">Apply</button>
+    <section class="sectionDesktop marginPage">
+        <div class=" availableJobs">
+            <div class="availableJobsContainer" v-for="(job, index) in jobs" :key="index">
+                <div class="aviableJobsData">
+                    <h5>{{ job.title }}</h5>
+                    <p>{{ job.address }}</p>
+                </div>
+                <div class="aviableJobsBtn">
+                    <button class="btn">Apply</button>
+                </div>
             </div>
         </div>
     </section>
@@ -84,11 +86,6 @@ export default {
 
 
 <style lang="scss" scoped>
-header{
-    background-image: url('@/assets/img/careers-location-hero-mobile.jpg');
-}
-
-
 .availableJobsContainer {
     background-color: $lightGrey;
     margin-bottom: 2rem;
@@ -110,15 +107,21 @@ header{
 }
 
 @media (min-width: $layout-tablet) {
-    .availableJobsContainer{
+    .availableJobsContainer {
         display: flex;
         align-items: center;
         justify-content: space-between;
         text-align: left;
 
-        .aviableJobsData{
+        .aviableJobsData {
             margin: 0;
         }
     }
+
+    .availableJobs{
+        margin: 0 auto;
+    }
 }
+
+@media (min-width: $layout-desktop) {}
 </style>

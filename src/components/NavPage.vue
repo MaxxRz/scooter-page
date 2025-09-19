@@ -263,4 +263,11 @@ export default {
 
     }
 }
+
+
+@media (min-width: $layout-desktop){
+    .navPageNavigation .navigationTop ul li{
+        margin-right: 3rem;
+    }
+}
 </style>
